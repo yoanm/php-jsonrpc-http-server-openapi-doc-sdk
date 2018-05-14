@@ -3,7 +3,7 @@
 ## Getting Started
  * Fork, then clone the repo:
 ```bash
-git clone git@github.com:your-username/php-jsonrpc-params-symfony-validator-sdk.git
+git clone git@github.com:your-username/php-jsonrpc-http-server-openapi-doc-sdk.git
 ````
 
  * Make sure everything goes well:
@@ -23,7 +23,7 @@ make test
 make coverage
 ```
 
- * Push to your fork and [submit a pull request](https://github.com/yoanm/php-jsonrpc-params-symfony-validator-sdk/compare/).
+ * Push to your fork and [submit a pull request](https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/compare/).
  * Wait for feedback or merge.
 
   Some stuff that will increase your pull request's acceptance:

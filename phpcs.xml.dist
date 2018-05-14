@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="php-jsonrpc-params-symfony-validator-sdk">
+<ruleset name="Php-jsonrpc-http-server-openapi-doc-sdk">
     <file>src</file>
     <file>tests</file>
     <file>features/bootstrap</file>
