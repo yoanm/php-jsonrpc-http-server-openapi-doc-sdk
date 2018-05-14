@@ -1,0 +1,33 @@
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+  - '7.2'
+
+env:
+  global:
+    CI: 'true'
+    TEST_OUTPUT_STYLE: 'pretty'
+    PHPCS_REPORT_STYLE: 'full'
+    COMPOSER_OPTIONS: '--optimize-autoloader'
+
+sudo: false
+
+matrix:
+  fast_finish: true
+
+before_install:
+  # remove xdebug to speed up build
+  - phpenv config-rm xdebug.ini
+
+install:
+  - make build
+script:
+  - make test-technical
+  - make test-functional
+
+cache:
+  directories:
+    - $HOME/.composer
+    - vendor
