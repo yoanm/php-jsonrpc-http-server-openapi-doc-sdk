@@ -44,33 +44,18 @@ class OperationDocNormalizer
         $self = $this
         ;
 
-        $extraErrorDefinitionIdRefList = array_merge(
-            array_map(
-                function (ErrorDoc $errorDoc) use ($self) {
-                    return [
-                        '$ref' => $self->definitionRefResolver->getDefinitionRef(
-                            $self->definitionRefResolver->getErrorDefinitionId(
-                                $errorDoc,
-                                DefinitionRefResolver::SERVER_ERROR_DEFINITION_TYPE
-                            )
+        $extraErrorDefinitionIdRefList = array_map(
+            function (ErrorDoc $errorDoc) use ($self) {
+                return [
+                    '$ref' => $self->definitionRefResolver->getDefinitionRef(
+                        $self->definitionRefResolver->getErrorDefinitionId(
+                            $errorDoc,
+                            DefinitionRefResolver::SERVER_ERROR_DEFINITION_TYPE
                         )
-                    ];
-                },
-                $serverDoc->getServerErrorList()
-            ),
-            array_map(
-                function (ErrorDoc $errorDoc) use ($self) {
-                    return [
-                        '$ref' => $self->definitionRefResolver->getDefinitionRef(
-                            $self->definitionRefResolver->getErrorDefinitionId(
-                                $errorDoc,
-                                DefinitionRefResolver::CUSTOM_ERROR_DEFINITION_TYPE
-                            )
-                        )
-                    ];
-                },
-                $serverDoc->getGlobalErrorList()
-            )
+                    )
+                ];
+            },
+            $serverDoc->getServerErrorList()
         );
 
         $docDescription = $docTags = [];
