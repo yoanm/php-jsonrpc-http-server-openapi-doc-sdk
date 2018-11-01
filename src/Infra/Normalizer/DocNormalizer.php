@@ -68,17 +68,15 @@ class DocNormalizer
         $serverList = [];
         if (null !== $doc->getHost()) {
             $host = $doc->getHost();
-            if (null !== $host) {
-                if (null !== $doc->getBasePath()) {
-                    $host .= $doc->getBasePath();
-                }
-                $schemeList = $doc->getSchemeList();
-                if (0 === count($schemeList)) {
-                    $schemeList[] = 'http';
-                }
-                foreach ($schemeList as $scheme) {
-                    $serverList[] = ['url' => sprintf('%s://%s', $scheme, $host)];
-                }
+            if (null !== $doc->getBasePath()) {
+                $host .= $doc->getBasePath();
+            }
+            $schemeList = $doc->getSchemeList();
+            if (0 === count($schemeList)) {
+                $schemeList[] = 'http';
+            }
+            foreach ($schemeList as $scheme) {
+                $serverList[] = ['url' => sprintf('%s://%s', $scheme, $host)];
             }
         }
 

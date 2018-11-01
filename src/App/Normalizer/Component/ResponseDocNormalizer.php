@@ -94,7 +94,15 @@ class ResponseDocNormalizer
         $errorDocList = array_merge(
             array_map(
                 function ($errorRef) use ($self) {
-                    return ['$ref' => $self->definitionRefResolver->getDefinitionRef($errorRef)];
+                    $errorDoc = new ErrorDoc('', 0, null, null, $errorRef);
+                    return [
+                        '$ref' => $self->definitionRefResolver->getDefinitionRef(
+                            $self->definitionRefResolver->getErrorDefinitionId(
+                                $errorDoc,
+                                DefinitionRefResolver::CUSTOM_ERROR_DEFINITION_TYPE
+                            )
+                        )
+                    ];
                 },
                 $method->getGlobalErrorRefList()
             ),
