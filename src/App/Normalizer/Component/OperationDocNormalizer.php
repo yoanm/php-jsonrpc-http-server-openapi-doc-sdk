@@ -41,8 +41,7 @@ class OperationDocNormalizer
      */
     public function normalize(MethodDoc $method, ServerDoc $serverDoc) : array
     {
-        $self = $this
-        ;
+        $self = $this;
 
         $extraErrorDefinitionIdRefList = array_map(
             function (ErrorDoc $errorDoc) use ($self) {

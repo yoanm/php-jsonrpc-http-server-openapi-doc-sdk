@@ -29,6 +29,7 @@ class OperationDocNormalizerTest extends TestCase
 
     const DEFAULT_REQUEST_DEFINITION = ['default-request-definition'];
     const DEFAULT_RESPONSE_DEFINITION = ['default-response-definition'];
+    const DEFAULT_RESPONSE_WITH_SERVER_ERRORS_DEFINITION = ['default-response-with-servers-errors-definition'];
 
     public function setUp()
     {
@@ -54,9 +55,14 @@ class OperationDocNormalizerTest extends TestCase
         $this->requestDocTransformer->normalize($methodDoc)
             ->willReturn(self::DEFAULT_REQUEST_DEFINITION)->shouldBeCalled()
         ;
-        $this->responseDocNormalizer->normalize($methodDoc, Argument::type('array'))
-            ->willReturn(self::DEFAULT_RESPONSE_DEFINITION)->shouldBeCalled()
-        ;
+        if (count($serverDoc->getServerErrorList()) > 0 ) {
+            $this->responseDocNormalizer->normalize($methodDoc, Argument::type('array'))
+                ->willReturn(self::DEFAULT_RESPONSE_WITH_SERVER_ERRORS_DEFINITION)->shouldBeCalled()
+            ;
+        } else {
+            $this->responseDocNormalizer->normalize($methodDoc, [])
+                ->willReturn(self::DEFAULT_RESPONSE_DEFINITION)->shouldBeCalled();
+        }
 
 
 
@@ -135,6 +141,30 @@ class OperationDocNormalizerTest extends TestCase
                             'description' => 'JSON-RPC response',
                             'content' => [
                                 'application/json' => ['schema' => self::DEFAULT_RESPONSE_DEFINITION]
+                            ]
+                        ]
+                    ]
+                ],
+            ],
+            'Server with custom errors' => [
+                'methodDoc' => new MethodDoc('my-method-name', 'MethodId'),
+                'serverDoc' => (new ServerDoc())
+                    ->addServerError(new ErrorDoc('Custom1', 1))
+                    ->addServerError(new ErrorDoc('Custom2', 2)),
+                'expected' => [
+                    'summary' => '"my-method-name" json-rpc method',
+                    'operationId' => 'MethodId',
+                    'requestBody' => [
+                        'required' => true,
+                        'content' => [
+                            'application/json' => ['schema' => self::DEFAULT_REQUEST_DEFINITION]
+                        ]
+                    ],
+                    'responses' => [
+                        '200' => [
+                            'description' => 'JSON-RPC response',
+                            'content' => [
+                                'application/json' => ['schema' => self::DEFAULT_RESPONSE_WITH_SERVER_ERRORS_DEFINITION]
                             ]
                         ]
                     ]
