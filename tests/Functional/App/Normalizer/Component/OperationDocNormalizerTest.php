@@ -55,7 +55,7 @@ class OperationDocNormalizerTest extends TestCase
         $this->requestDocTransformer->normalize($methodDoc)
             ->willReturn(self::DEFAULT_REQUEST_DEFINITION)->shouldBeCalled()
         ;
-        if (count($serverDoc->getServerErrorList()) > 0 ) {
+        if (count($serverDoc->getServerErrorList()) > 0) {
             $this->responseDocNormalizer->normalize($methodDoc, Argument::type('array'))
                 ->willReturn(self::DEFAULT_RESPONSE_WITH_SERVER_ERRORS_DEFINITION)->shouldBeCalled()
             ;
