@@ -2,11 +2,9 @@
 namespace Tests\Functional\App\Normalizer\Component;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ErrorDocNormalizer;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ExternalSchemaListDocNormalizer;
-use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ShapeNormalizer;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\TypeDocNormalizer;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Resolver\DefinitionRefResolver;
 use Yoanm\JsonRpcServerDoc\Domain\Model\ErrorDoc;
@@ -25,8 +23,6 @@ class ExternalSchemaListDocNormalizerTest extends TestCase
     private $typeDocNormalizer;
     /** @var ErrorDocNormalizer|ObjectProphecy */
     private $errorDocNormalizer;
-    /** @var ShapeNormalizer|ObjectProphecy */
-    private $shapeNormalizer;
     /** @var ExternalSchemaListDocNormalizer */
     private $normalizer;
 
@@ -34,13 +30,11 @@ class ExternalSchemaListDocNormalizerTest extends TestCase
     {
         $this->typeDocNormalizer = $this->prophesize(TypeDocNormalizer::class);
         $this->errorDocNormalizer = $this->prophesize(ErrorDocNormalizer::class);
-        $this->shapeNormalizer = $this->prophesize(ShapeNormalizer::class);
 
         $this->normalizer = new ExternalSchemaListDocNormalizer(
             new DefinitionRefResolver(),
             $this->typeDocNormalizer->reveal(),
-            $this->errorDocNormalizer->reveal(),
-            $this->shapeNormalizer->reveal()
+            $this->errorDocNormalizer->reveal()
         );
     }
 

@@ -57,10 +57,11 @@ class DefinitionRefResolver
     }
 
     /**
-     * @param ErrorDoc $errorDoc
+     * @param string $path
+     *
      * @return string
      */
-    public function getDefinitionRef($path)
+    public function getDefinitionRef(string $path)
     {
         return sprintf('#/components/schemas/%s', $path);
     }

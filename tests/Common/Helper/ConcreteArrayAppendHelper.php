@@ -1,7 +1,6 @@
 <?php
 namespace Tests\Common\Helper;
 
-use Prophecy\Argument;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Helper\ArrayAppendHelperTrait;
 
 class ConcreteArrayAppendHelper

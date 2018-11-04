@@ -22,8 +22,6 @@ class AbstractContext implements Context
     /**
      * @param object $object
      * @param array  $decodedMethodCalls
-     *
-     * @return mixed
      */
     protected function callMethods($object, array $decodedMethodCalls)
     {
