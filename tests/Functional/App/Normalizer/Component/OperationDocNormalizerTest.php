@@ -11,7 +11,6 @@ use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Resolver\DefinitionRefResolver;
 use Yoanm\JsonRpcServerDoc\Domain\Model\ErrorDoc;
 use Yoanm\JsonRpcServerDoc\Domain\Model\MethodDoc;
 use Yoanm\JsonRpcServerDoc\Domain\Model\ServerDoc;
-use Yoanm\JsonRpcServerDoc\Domain\Model\Type as TypeDocNs;
 
 /**
  * @covers \Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\OperationDocNormalizer

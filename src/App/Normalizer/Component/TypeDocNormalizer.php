@@ -26,10 +26,13 @@ class TypeDocNormalizer
     {
         $this->schemaTypeNormalizer = $schemaTypeNormalizer;
     }
+
     /**
      * @param TypeDoc $doc
      *
-     * @return array
+     * @return array|mixed
+     *
+     * @throws \ReflectionException
      */
     public function normalize(TypeDoc $doc)
     {
@@ -58,8 +61,8 @@ class TypeDocNormalizer
 
     /**
      * @param TypeDoc $doc
-     * @param $paramDocMinMax
-     * @return mixed
+     *
+     * @return array
      */
     protected function getMinMaxDoc(TypeDoc $doc)
     {
@@ -87,6 +90,8 @@ class TypeDocNormalizer
      * @param array   $siblingsDoc
      *
      * @return array
+     *
+     * @throws \ReflectionException
      */
     protected function appendArrayDoc(TypeDoc $doc, array $siblingsDoc)
     {

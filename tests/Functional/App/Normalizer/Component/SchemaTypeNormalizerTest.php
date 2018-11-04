@@ -2,7 +2,6 @@
 namespace Tests\Functional\App\Normalizer\Component;
 
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Tests\Common\TypeDoc\NotManagedTypeDoc;
 use Tests\Common\TypeDoc\NullDoc;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\SchemaTypeNormalizer;

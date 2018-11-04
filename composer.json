@@ -29,6 +29,7 @@
         "yoanm/jsonrpc-server-doc-sdk": "dev-release/1.0.0"
     },
     "require-dev": {
+        "ext-json": "*",
         "behat/behat": "~3.0",
         "squizlabs/php_codesniffer": "3.*",
         "phpunit/phpunit": "^6.0 || ^7.0",

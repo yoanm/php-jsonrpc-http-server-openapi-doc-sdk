@@ -27,6 +27,8 @@ class ErrorDocNormalizer
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \ReflectionException
      */
     public function normalize(ErrorDoc $errorDoc)
     {
