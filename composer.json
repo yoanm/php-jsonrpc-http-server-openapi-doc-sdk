@@ -1,38 +1,43 @@
 {
-    "name": "yoanm/jsonrpc-http-server-openapi-doc-sdk",
-    "description": "SDK to generate Http JSON-RPC server documentation for OpenAPI v3.0.0",
-    "license": "MIT",
-    "type": "library",
-    "support": {
-        "issues": "https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/issues"
-    },
-    "authors": [
-        {
-            "name": "Yoanm",
-            "email": "yoanm@users.noreply.github.com",
-            "role": "Developer"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Yoanm\\JsonRpcHttpServerOpenAPIDoc\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests",
-            "Tests\\Functional\\BehatContext\\": "features/bootstrap"
-        }
-    },
-    "require": {
-        "php": ">=7.1",
-        "yoanm/jsonrpc-server-doc-sdk": "dev-release/1.0.0"
-    },
-    "require-dev": {
-        "ext-json": "*",
-        "behat/behat": "~3.0",
-        "squizlabs/php_codesniffer": "3.*",
-        "phpunit/phpunit": "^6.0 || ^7.0",
-        "yoanm/php-unit-extended": "~1.0"
+  "name": "yoanm/jsonrpc-http-server-openapi-doc-sdk",
+  "description": "SDK to generate Http JSON-RPC server documentation for OpenAPI v3.0.0",
+  "license": "MIT",
+  "type": "library",
+  "support": {
+    "issues": "https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/issues"
+  },
+  "authors": [
+    {
+      "name": "Yoanm",
+      "email": "yoanm@users.noreply.github.com",
+      "role": "Developer"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Yoanm\\JsonRpcHttpServerOpenAPIDoc\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests",
+      "Tests\\Functional\\BehatContext\\": "features/bootstrap"
+    }
+  },
+  "suggest": {
+    "yoanm/symfony-jsonrpc-http-server-openapi-doc": "Symfony bundle for easy JSON-RPC server OpenAPI 3.0.0 documentation",
+    "yoanm/symfony-jsonrpc-http-server-doc": "Symfony bundle for easy JSON-RPC server documentation",
+    "yoanm/symfony-jsonrpc-http-server": "Symfony Bundle to convert an HTTP json-rpc request into HTTP json-rpc response"
+  },
+  "require": {
+    "php": ">=7.1",
+    "yoanm/jsonrpc-server-doc-sdk": "dev-release/0.1.0"
+  },
+  "require-dev": {
+    "ext-json": "*",
+    "behat/behat": "~3.0",
+    "squizlabs/php_codesniffer": "3.*",
+    "phpunit/phpunit": "^6.0 || ^7.0",
+    "yoanm/php-unit-extended": "~1.0"
+  }
 }
