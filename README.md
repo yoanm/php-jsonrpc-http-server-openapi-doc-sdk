@@ -9,7 +9,66 @@
 
 SDK to generate Http JSON-RPC server documentation for OpenAPI v3.0.0
 
+See [`yoanm/symfony-jsonrpc-http-server-openapi-doc`](https://github.com/yoanm/symfony-jsonrpc-http-server-openapi-doc) for automatic dependency injection.
+
 ## How to use
+
+Create the normalizer : 
+```php
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ErrorDocNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ExternalSchemaListDocNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\OperationDocNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\RequestDocNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ResponseDocNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\SchemaTypeNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ShapeNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\TypeDocNormalizer;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Resolver\DefinitionRefResolver;
+use Yoanm\JsonRpcHttpServerOpenAPIDoc\Infra\Normalizer\DocNormalizer;
+
+$shapeNormalizer = new ShapeNormalizer();
+$definitionRefResolver = new DefinitionRefResolver();
+$typeDocNormalizer = new TypeDocNormalizer(
+    new SchemaTypeNormalizer()
+);
+
+$normalizer = new DocNormalizer(
+    new ExternalSchemaListDocNormalizer(
+        $definitionRefResolver,
+        $typeDocNormalizer,
+        new ErrorDocNormalizer(
+            $typeDocNormalizer,
+            $shapeNormalizer
+        )
+    ),
+    new OperationDocNormalizer(
+        $definitionRefResolver,
+        new RequestDocNormalizer(
+            $definitionRefResolver,
+            $shapeNormalizer
+        ),
+        new ResponseDocNormalizer(
+            $definitionRefResolver,
+            $shapeNormalizer
+        )
+    )
+);
+```
+
+Then you can convert `ServerDoc` or `HttpServerDoc` by doing : 
+```php
+use Yoanm\JsonRpcServerDoc\Domain\Model\ServerDoc;
+
+$serverDoc = new ServerDoc();
+// Configure server doc
+...
+// Add methods documentation
+...
+// Then normalize
+/** @var array $openAPIDoc */
+$openAPIDoc = $normalizer->normalize($serverDoc);
+```
+
 
 
 ## Contributing
