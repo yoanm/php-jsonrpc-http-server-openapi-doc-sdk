@@ -15,18 +15,14 @@ build:
     tests:
         stop_on_failure: true
         override:
-            - php-scrutinizer-run --enable-security-analysis
-            -
-                command: make codestyle
-                analysis:
-                      file: 'build/reports/cs-data'
-                      format: 'php-cs-checkstyle'
             -
                 command: make coverage
                 idle_timeout: 1200
                 coverage:
                     file: 'build/coverage/clover.xml'
                     format: 'php-clover'
+            - php-scrutinizer-run --enable-security-analysis
+            - make codestyle
     cache:
         directories:
             - ~/.composer
@@ -39,8 +35,6 @@ build:
             COMPOSER_OPTIONS: '--optimize-autoloader'
             COVERAGE_OUTPUT_STYLE: 'clover'
             COVERAGE_CLOVER_FILE_PATH: 'build/coverage/clover.xml'
-            PHPCS_REPORT_STYLE: 'checkstyle'
-            PHPCS_REPORT_FILE: 'build/reports/cs-data'
         php:
             version: "7.1"
         timezone: UTC
