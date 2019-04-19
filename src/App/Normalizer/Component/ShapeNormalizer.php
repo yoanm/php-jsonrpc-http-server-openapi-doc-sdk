@@ -9,7 +9,7 @@ class ShapeNormalizer
     /**
      * @return array
      */
-    public function getRequestShapeDefinition()
+    public function getRequestShapeDefinition() : array
     {
         return [
             'type' => 'object',
@@ -42,7 +42,7 @@ class ShapeNormalizer
     /**
      * @return array
      */
-    public function getResponseShapeDefinition()
+    public function getResponseShapeDefinition() : array
     {
         return [
             'type' => 'object',
@@ -74,7 +74,7 @@ class ShapeNormalizer
     /**
      * @return array
      */
-    public function getErrorShapeDefinition()
+    public function getErrorShapeDefinition() : array
     {
         return [
             'type' => 'object',

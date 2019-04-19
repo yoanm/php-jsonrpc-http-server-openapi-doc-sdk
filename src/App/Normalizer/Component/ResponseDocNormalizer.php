@@ -36,7 +36,7 @@ class ResponseDocNormalizer
      *
      * @return array
      */
-    public function normalize(MethodDoc $method, array $extraErrorDefinitionIdRefList = [])
+    public function normalize(MethodDoc $method, array $extraErrorDefinitionIdRefList = []) : array
     {
         $responseErrorShape = [];
         $errorArrayDoc = $this->getMethodErrorArrayDoc($method, $extraErrorDefinitionIdRefList);
@@ -63,7 +63,7 @@ class ResponseDocNormalizer
      *
      * @return array
      */
-    protected function getMethodResultArrayDoc(MethodDoc $method)
+    protected function getMethodResultArrayDoc(MethodDoc $method) : array
     {
         if (null !== $method->getResultDoc()) {
             $result = [
@@ -87,7 +87,7 @@ class ResponseDocNormalizer
      *
      * @return array
      */
-    protected function getMethodErrorArrayDoc(MethodDoc $method, array $extraErrorDefinitionIdRefList = [])
+    protected function getMethodErrorArrayDoc(MethodDoc $method, array $extraErrorDefinitionIdRefList = []) : array
     {
         $self = $this;
 

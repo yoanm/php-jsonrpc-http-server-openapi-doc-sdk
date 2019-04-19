@@ -34,7 +34,7 @@ class TypeDocNormalizer
      *
      * @throws \ReflectionException
      */
-    public function normalize(TypeDoc $doc)
+    public function normalize(TypeDoc $doc) : array
     {
         $siblingsDoc = $paramDocRequired = [];
 
@@ -47,16 +47,16 @@ class TypeDocNormalizer
         $format = ($doc instanceof StringDoc ? $doc->getFormat() : null);
 
         return $this->appendIfValueNotNull('description', $doc->getDescription())
-        + ['type' => $this->schemaTypeNormalizer->normalize($doc)]
-        + $this->appendIfValueNotNull('format', $format)
-        + ['nullable' => $doc->isNullable()]
-        + $paramDocRequired
-        + $this->appendIfValueNotNull('default', $doc->getDefault())
-        + $this->appendIfValueNotNull('example', $doc->getExample())
-        + $this->appendIfValueHaveSiblings('enum', array_values($doc->getAllowedValueList()))
-        + $this->getMinMaxDoc($doc)
-        + $siblingsDoc
-            ;
+            + ['type' => $this->schemaTypeNormalizer->normalize($doc)]
+            + $this->appendIfValueNotNull('format', $format)
+            + ['nullable' => $doc->isNullable()]
+            + $paramDocRequired
+            + $this->appendIfValueNotNull('default', $doc->getDefault())
+            + $this->appendIfValueNotNull('example', $doc->getExample())
+            + $this->appendIfValueHaveSiblings('enum', array_values($doc->getAllowedValueList()))
+            + $this->getMinMaxDoc($doc)
+            + $siblingsDoc
+        ;
     }
 
     /**
@@ -64,7 +64,7 @@ class TypeDocNormalizer
      *
      * @return array
      */
-    protected function getMinMaxDoc(TypeDoc $doc)
+    protected function getMinMaxDoc(TypeDoc $doc) : array
     {
         $paramDocMinMax = [];
         if ($doc instanceof StringDoc) {
@@ -93,7 +93,7 @@ class TypeDocNormalizer
      *
      * @throws \ReflectionException
      */
-    protected function appendArrayDoc(TypeDoc $doc, array $siblingsDoc)
+    protected function appendArrayDoc(TypeDoc $doc, array $siblingsDoc) : array
     {
         // CollectionDoc should be managed as ArrayDoc
         if (!$doc instanceof ArrayDoc && get_class($doc) !== CollectionDoc::class) {
@@ -117,7 +117,7 @@ class TypeDocNormalizer
      *
      * @return array
      */
-    protected function appendObjectDoc(TypeDoc $doc, array $siblingsDoc, array $paramDocRequired)
+    protected function appendObjectDoc(TypeDoc $doc, array $siblingsDoc, array $paramDocRequired) : array
     {
         if (!$doc instanceof ObjectDoc) {
             return [$siblingsDoc, $paramDocRequired];
@@ -162,7 +162,7 @@ class TypeDocNormalizer
      *
      * @return string
      */
-    protected function guessItemsType(array $siblingList)
+    protected function guessItemsType(array $siblingList) : string
     {
         $self = $this;
         $uniqueTypeList = array_unique(
@@ -188,7 +188,7 @@ class TypeDocNormalizer
      *
      * @return array
      */
-    protected function appendNumberMinMax(NumberDoc $doc, array $paramDocMinMax)
+    protected function appendNumberMinMax(NumberDoc $doc, array $paramDocMinMax) : array
     {
         $paramDocMinMax = $this->appendIfValueNotNull('minimum', $doc->getMin(), $paramDocMinMax);
         $paramDocMinMax = $this->appendIf(

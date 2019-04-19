@@ -26,11 +26,13 @@ class ErrorDocNormalizer
     }
 
     /**
-     * {@inheritdoc}
+     * @param ErrorDoc $errorDoc
+     *
+     * @return array
      *
      * @throws \ReflectionException
      */
-    public function normalize(ErrorDoc $errorDoc)
+    public function normalize(ErrorDoc $errorDoc) : array
     {
         $requiredDoc = ['required' => ['code']];
         $properties = [

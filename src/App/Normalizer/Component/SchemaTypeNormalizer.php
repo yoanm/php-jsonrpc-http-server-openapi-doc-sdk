@@ -15,7 +15,7 @@ class SchemaTypeNormalizer
      *
      * @throws \ReflectionException
      */
-    public function normalize(TypeDoc $doc)
+    public function normalize(TypeDoc $doc) : string
     {
         $type = str_replace('Doc', '', lcfirst((new \ReflectionClass($doc))->getShortName()));
         // translate type

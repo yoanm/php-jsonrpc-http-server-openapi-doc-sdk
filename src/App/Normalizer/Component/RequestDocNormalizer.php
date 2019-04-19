@@ -27,9 +27,11 @@ class RequestDocNormalizer
     }
 
     /**
-     * {@inheritdoc}
+     * @param MethodDoc $method
+     *
+     * @return array
      */
-    public function normalize(MethodDoc $method)
+    public function normalize(MethodDoc $method) : array
     {
         $operationProperties = ['method' => ['example' => $method->getMethodName()]];
 

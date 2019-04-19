@@ -20,7 +20,7 @@ class DefinitionRefResolver
      *
      * @return string
      */
-    public function getMethodDefinitionId(MethodDoc $method, $definitionType)
+    public function getMethodDefinitionId(MethodDoc $method, $definitionType) : string
     {
         $base = 'UNKNONWN_METHOD-%s';
         switch ($definitionType) {
@@ -41,7 +41,7 @@ class DefinitionRefResolver
      *
      * @return string
      */
-    public function getErrorDefinitionId(ErrorDoc $error, $definitionType)
+    public function getErrorDefinitionId(ErrorDoc $error, $definitionType) : string
     {
         $base = 'UNKNONWN_ERROR-%s';
         switch ($definitionType) {
@@ -61,7 +61,7 @@ class DefinitionRefResolver
      *
      * @return string
      */
-    public function getDefinitionRef(string $path)
+    public function getDefinitionRef(string $path) : string
     {
         return sprintf('#/components/schemas/%s', $path);
     }
