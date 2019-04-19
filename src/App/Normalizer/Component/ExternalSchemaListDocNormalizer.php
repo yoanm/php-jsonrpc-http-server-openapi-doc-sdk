@@ -39,7 +39,7 @@ class ExternalSchemaListDocNormalizer
      *
      * @throws \ReflectionException
      */
-    public function normalize(ServerDoc $doc)
+    public function normalize(ServerDoc $doc) : array
     {
         return array_merge(
             $this->getMethodsExternalSchemaList($doc),
@@ -55,7 +55,7 @@ class ExternalSchemaListDocNormalizer
      *
      * @throws \ReflectionException
      */
-    protected function getMethodsExternalSchemaList(ServerDoc $doc)
+    protected function getMethodsExternalSchemaList(ServerDoc $doc) : array
     {
         $list = [];
         foreach ($doc->getMethodList() as $method) {
@@ -73,7 +73,7 @@ class ExternalSchemaListDocNormalizer
      *
      * @throws \ReflectionException
      */
-    protected function getMethodErrorsExternalSchemaList(ServerDoc $doc)
+    protected function getMethodErrorsExternalSchemaList(ServerDoc $doc) : array
     {
         $list = [];
         foreach ($doc->getMethodList() as $method) {
@@ -97,7 +97,7 @@ class ExternalSchemaListDocNormalizer
      *
      * @throws \ReflectionException
      */
-    protected function getServerErrorsExtraSchemaList(ServerDoc $doc)
+    protected function getServerErrorsExtraSchemaList(ServerDoc $doc) : array
     {
         $list = [];
         foreach ($doc->getGlobalErrorList() as $errorDoc) {

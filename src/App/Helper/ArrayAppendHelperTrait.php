@@ -13,7 +13,7 @@ trait ArrayAppendHelperTrait
      *
      * @return array
      */
-    protected function appendIfValueHaveSiblings(string $key, array $value, array $doc = [])
+    protected function appendIfValueHaveSiblings(string $key, array $value, array $doc = []) : array
     {
         return $this->appendIf((count($value) > 0), $key, $value, $doc);
     }
@@ -25,7 +25,7 @@ trait ArrayAppendHelperTrait
      *
      * @return array
      */
-    protected function appendIfValueNotNull(string $key, $value, array $doc = [])
+    protected function appendIfValueNotNull(string $key, $value, array $doc = []) : array
     {
         return $this->appendIf((null !== $value), $key, $value, $doc);
     }
@@ -38,7 +38,7 @@ trait ArrayAppendHelperTrait
      *
      * @return array
      */
-    protected function appendIf(bool $doAppend, string $key, $value, array $doc = [])
+    protected function appendIf(bool $doAppend, string $key, $value, array $doc = []) : array
     {
         if (true === $doAppend) {
             $doc[$key] = $value;
