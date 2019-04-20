@@ -41,9 +41,10 @@ class SchemaTypeNormalizer
         $type = str_replace('Doc', '', lcfirst((new \ReflectionClass($doc))->getShortName()));
         if (array_key_exists($type, self::MANAGED_TYPE_LIST)) {
             return $type;
-        } elseif (array_key_exists($type,self::RENAMED_TYPE_LIST)) {
+        } elseif (array_key_exists($type, self::RENAMED_TYPE_LIST)) {
             return self::RENAMED_TYPE_LIST[$type];
         }
+
         return 'string';
     }
 }
