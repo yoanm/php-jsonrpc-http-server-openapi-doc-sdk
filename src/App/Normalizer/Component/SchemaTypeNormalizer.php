@@ -9,31 +9,42 @@ use Yoanm\JsonRpcServerDoc\Domain\Model\Type\TypeDoc;
 class SchemaTypeNormalizer
 {
     /**
+     * @private
+     * @type array
+     */
+    const MANAGED_TYPE_LIST = [
+        'array' => true,
+        'number' => true,
+        'object' => true,
+        'string' => true,
+        'integer' => true,
+        'boolean' => true,
+        'null' => true,
+    ];
+    /**
+     * @private
+     * @type array
+     */
+    const RENAMED_TYPE_LIST = [
+        'float' => 'number',
+        'collection' => 'array',
+    ];
+    /**
      * @param TypeDoc $doc
      *
-     * @return mixed|string
+     * @return string
      *
      * @throws \ReflectionException
      */
     public function normalize(TypeDoc $doc) : string
     {
         $type = str_replace('Doc', '', lcfirst((new \ReflectionClass($doc))->getShortName()));
-        // translate type
-        switch ($type) {
-            case 'array':
-            case 'number':
-            case 'object':
-            case 'string':
-            case 'integer':
-            case 'boolean':
-            case 'null':
-                return $type;
-            case 'float':
-                return 'number';
-            case 'collection':
-                return 'array';
-            default:
-                return 'string';
+        if (array_key_exists($type, self::MANAGED_TYPE_LIST)) {
+            return $type;
+        } elseif (array_key_exists($type, self::RENAMED_TYPE_LIST)) {
+            return self::RENAMED_TYPE_LIST[$type];
         }
+
+        return 'string';
     }
 }
