@@ -30,7 +30,7 @@ class OperationDocNormalizerTest extends TestCase
     const DEFAULT_RESPONSE_DEFINITION = ['default-response-definition'];
     const DEFAULT_RESPONSE_WITH_SERVER_ERRORS_DEFINITION = ['default-response-with-servers-errors-definition'];
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->requestDocTransformer = $this->prophesize(RequestDocNormalizer::class);
         $this->responseDocNormalizer = $this->prophesize(ResponseDocNormalizer::class);

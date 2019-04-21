@@ -27,7 +27,7 @@ class DocNormalizerTest extends TestCase
     const DEFAULT_OPERATION_DOC = ['default-opertation-doc'];
     const DEFAULT_EXTERNAL_LIST_DOC = ['default-external-list-doc'];
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->externalSchemaListDocNormalizer = $this->prophesize(ExternalSchemaListDocNormalizer::class);
         $this->operationDocNormalizer = $this->prophesize(OperationDocNormalizer::class);

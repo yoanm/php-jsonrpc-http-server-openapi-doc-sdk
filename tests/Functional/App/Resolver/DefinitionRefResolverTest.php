@@ -17,7 +17,7 @@ class DefinitionRefResolverTest extends TestCase
     /** @var DefinitionRefResolver */
     private $resolver;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->resolver = new DefinitionRefResolver();
     }

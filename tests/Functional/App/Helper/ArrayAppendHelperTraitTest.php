@@ -19,7 +19,7 @@ class ArrayAppendHelperTraitTest extends TestCase
     const DEFAULT_ERROR_SHAPE = ['default-error-shape'];
     const DEFAULT_DATA_DOC = ['default-data-doc'];
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->helper = new ConcreteArrayAppendHelper();
     }

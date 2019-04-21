@@ -14,7 +14,7 @@ class ShapeNormalizerTest extends TestCase
     /** @var ShapeNormalizer */
     private $normalizer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->normalizer = new ShapeNormalizer();
     }
