@@ -17,7 +17,7 @@ class SchemaTypeNormalizerTest extends TestCase
     /** @var SchemaTypeNormalizer */
     private $normalizer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->normalizer = new SchemaTypeNormalizer();
     }

@@ -26,7 +26,7 @@ class ErrorDocNormalizerTest extends TestCase
     const DEFAULT_ERROR_SHAPE = ['default-error-shape'];
     const DEFAULT_DATA_DOC = ['default-data-doc'];
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->typeDocNormalizer = $this->prophesize(TypeDocNormalizer::class);
         $this->shapeNormalizer = $this->prophesize(ShapeNormalizer::class);

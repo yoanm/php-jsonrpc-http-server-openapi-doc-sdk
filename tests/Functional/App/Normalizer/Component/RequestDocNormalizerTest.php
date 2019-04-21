@@ -27,7 +27,7 @@ class RequestDocNormalizerTest extends TestCase
     const DEFAULT_DEFINITION_ID = 'default-definition-id';
     const DEFAULT_DEFINITION_ID_REF = 'default-definition-id-ref';
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->definitionRefResolver = $this->prophesize(DefinitionRefResolver::class);
         $this->shapeNormalizer = $this->prophesize(ShapeNormalizer::class);

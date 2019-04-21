@@ -26,7 +26,7 @@ class ExternalSchemaListDocNormalizerTest extends TestCase
     /** @var ExternalSchemaListDocNormalizer */
     private $normalizer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->typeDocNormalizer = $this->prophesize(TypeDocNormalizer::class);
         $this->errorDocNormalizer = $this->prophesize(ErrorDocNormalizer::class);

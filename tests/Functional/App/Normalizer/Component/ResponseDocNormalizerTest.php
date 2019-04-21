@@ -22,7 +22,7 @@ class ResponseDocNormalizerTest extends TestCase
     /** @var ResponseDocNormalizer */
     private $normalizer;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->shapeNormalizer = $this->prophesize(ShapeNormalizer::class);
 
