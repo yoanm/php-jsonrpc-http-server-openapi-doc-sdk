@@ -2,6 +2,7 @@
 namespace Tests\Functional\App\Resolver;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Resolver\DefinitionRefResolver;
 use Yoanm\JsonRpcServerDoc\Domain\Model\ErrorDoc;
@@ -14,6 +15,8 @@ use Yoanm\JsonRpcServerDoc\Domain\Model\MethodDoc;
  */
 class DefinitionRefResolverTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var DefinitionRefResolver */
     private $resolver;
 

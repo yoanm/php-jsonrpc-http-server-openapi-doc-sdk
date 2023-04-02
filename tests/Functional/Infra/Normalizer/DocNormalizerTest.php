@@ -1,7 +1,8 @@
 <?php
-namespace Tests\Functional\App\Normalizer\Component;
+namespace Tests\Functional\Functional\Infra\Normalizer;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ExternalSchemaListDocNormalizer;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\OperationDocNormalizer;
@@ -17,6 +18,8 @@ use Yoanm\JsonRpcServerDoc\Domain\Model\TagDoc;
  */
 class DocNormalizerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var ExternalSchemaListDocNormalizer|ObjectProphecy */
     private $externalSchemaListDocNormalizer;
     /** @var OperationDocNormalizer|ObjectProphecy */

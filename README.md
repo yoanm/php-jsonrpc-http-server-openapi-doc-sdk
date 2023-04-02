@@ -1,11 +1,18 @@
 # JSON-RPC Http server OpenAPI documentation
-[![License](https://img.shields.io/github/license/yoanm/php-jsonrpc-http-server-openapi-doc-sdk.svg)](https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk) [![Code size](https://img.shields.io/github/languages/code-size/yoanm/php-jsonrpc-http-server-openapi-doc-sdk.svg)](https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=yoanm/php-jsonrpc-http-server-openapi-doc-sdk)](https://dependabot.com)
 
-[![Scrutinizer Build Status](https://img.shields.io/scrutinizer/build/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk.svg?label=Scrutinizer&logo=scrutinizer)](https://scrutinizer-ci.com/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/build-status/master) [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/master.svg?logo=scrutinizer)](https://scrutinizer-ci.com/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/?branch=master) [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/master.svg?logo=scrutinizer)](https://scrutinizer-ci.com/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/?branch=master)
+[![License](https://img.shields.io/github/license/yoanm/php-jsonrpc-http-server-openapi-doc-sdk.svg)](https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk)
+[![Code size](https://img.shields.io/github/languages/code-size/yoanm/php-jsonrpc-http-server-openapi-doc-sdk.svg)](https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github\&repo=yoanm/php-jsonrpc-http-server-openapi-doc-sdk)](https://dependabot.com)
 
-[![Travis Build Status](https://img.shields.io/travis/com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/master.svg?label=Travis&logo=travis)](https://travis-ci.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk) <!-- NOT WORKING WITH travis-ci.com [![Travis PHP versions](https://img.shields.io/travis/php-v/yoanm/php-jsonrpc-http-server-openapi-doc-sdk.svg?logo=travis)](https://php.net/) -->
+[![Scrutinizer Build Status](https://img.shields.io/scrutinizer/build/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk.svg?label=Scrutinizer\&logo=scrutinizer)](https://scrutinizer-ci.com/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/build-status/master)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/master.svg?logo=scrutinizer)](https://scrutinizer-ci.com/g/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/?branch=master)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8f39424add044b43a70bdb238e2f48db)](https://www.codacy.com/gh/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/dashboard?utm_source=github.com\&utm_medium=referral\&utm_content=yoanm/php-jsonrpc-http-server-openapi-doc-sdk\&utm_campaign=Badge_Grade)
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yoanm/jsonrpc-http-server-openapi-doc-sdk.svg)](https://packagist.org/packages/yoanm/jsonrpc-http-server-openapi-doc-sdk) [![Packagist PHP version](https://img.shields.io/packagist/php-v/yoanm/jsonrpc-http-server-openapi-doc-sdk.svg)](https://packagist.org/packages/yoanm/jsonrpc-http-server-openapi-doc-sdk)
+[![CI](https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/yoanm/php-jsonrpc-http-server-openapi-doc-sdk/branch/master/graph/badge.svg?token=NHdwEBUFK5)](https://codecov.io/gh/yoanm/php-jsonrpc-http-server-openapi-doc-sdk)
+
+[![Latest Stable Version](https://img.shields.io/packagist/v/yoanm/jsonrpc-http-server-openapi-doc-sdk.svg)](https://packagist.org/packages/yoanm/jsonrpc-http-server-openapi-doc-sdk)
+[![Packagist PHP version](https://img.shields.io/packagist/php-v/yoanm/jsonrpc-http-server-openapi-doc-sdk.svg)](https://packagist.org/packages/yoanm/jsonrpc-http-server-openapi-doc-sdk)
 
 SDK to generate Http JSON-RPC server documentation for OpenAPI v3.0.0
 
@@ -13,7 +20,8 @@ See [`yoanm/symfony-jsonrpc-http-server-openapi-doc`](https://github.com/yoanm/s
 
 ## How to use
 
-Create the normalizer : 
+Create the normalizer :
+
 ```php
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ErrorDocNormalizer;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\ExternalSchemaListDocNormalizer;
@@ -55,7 +63,8 @@ $normalizer = new DocNormalizer(
 );
 ```
 
-Then you can convert `ServerDoc` or `HttpServerDoc` by doing : 
+Then you can convert `ServerDoc` or `HttpServerDoc` by doing :
+
 ```php
 use Yoanm\JsonRpcServerDoc\Domain\Model\ServerDoc;
 
@@ -69,7 +78,6 @@ $serverDoc = new ServerDoc();
 $openAPIDoc = $normalizer->normalize($serverDoc);
 ```
 
-
-
 ## Contributing
+
 See [contributing note](./CONTRIBUTING.md)

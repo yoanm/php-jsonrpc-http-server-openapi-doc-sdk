@@ -2,6 +2,7 @@
 namespace Tests\Functional\App\Normalizer\Component;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\SchemaTypeNormalizer;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Normalizer\Component\TypeDocNormalizer;
 use Yoanm\JsonRpcServerDoc\Domain\Model\Type as TypeDocNs;
@@ -13,6 +14,8 @@ use Yoanm\JsonRpcServerDoc\Domain\Model\Type as TypeDocNs;
  */
 class TypeDocNormalizerTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var TypeDocNormalizer */
     private $normalizer;
 
