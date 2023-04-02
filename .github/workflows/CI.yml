@@ -87,10 +87,10 @@ jobs:
       # Upload to codacy first as codecov action always remove coverage files despite move_coverage_to_trash at false
       # And only if it's not a PR from a fork => Can't work as codacy secret is not accessible in that context
       - name: Upload coverages to Codacy
-        if: ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == 'yoanm/php-jsonrpc-http-server-swagger-doc-sdk') && env.COVERAGE_TYPE == 'xdebug' }}
+        if: ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == 'yoanm/php-jsonrpc-http-server-openapi-doc-sdk') && env.COVERAGE_TYPE == 'xdebug' }}
         run: ${{ env.CODACY_BIN }} report -r build/coverage-phpunit/unit.clover -r build/coverage-behat/clover.xml -r build/coverage-phpunit/functional.clover -t ${{ secrets.CODACY_PROJECT_TOKEN }} --partial
 
-      # See the reports at https://codecov.io/gh/yoanm/php-jsonrpc-http-server-swagger-doc-sdk
+      # See the reports at https://codecov.io/gh/yoanm/php-jsonrpc-http-server-openapi-doc-sdk
       - name: Upload unit tests coverage to codecov
         if: ${{ env.COVERAGE_TYPE == 'xdebug' }}
         uses: codecov/codecov-action@v3
@@ -151,7 +151,7 @@ jobs:
   finalize-codacy-coverage-report:
     runs-on: ubuntu-latest
     name: Finalize Codacy coverage report
-    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == 'yoanm/php-jsonrpc-http-server-swagger-doc-sdk' }}
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == 'yoanm/php-jsonrpc-http-server-openapi-doc-sdk' }}
     needs: [ tests ]
     steps:
       - name: Setup cache
