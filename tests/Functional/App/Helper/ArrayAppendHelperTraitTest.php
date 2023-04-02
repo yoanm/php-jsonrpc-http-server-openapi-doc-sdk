@@ -2,6 +2,7 @@
 namespace Tests\Functional\App\Helper;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Tests\Common\Helper\ConcreteArrayAppendHelper;
 use Yoanm\JsonRpcHttpServerOpenAPIDoc\App\Helper\ArrayAppendHelperTrait;
 use Yoanm\JsonRpcServerDoc\Domain\Model\ErrorDoc;
@@ -13,6 +14,8 @@ use Yoanm\JsonRpcServerDoc\Domain\Model\ErrorDoc;
  */
 class ArrayAppendHelperTraitTest extends TestCase
 {
+    use ProphecyTrait;
+
     /** @var ArrayAppendHelperTrait|ConcreteArrayAppendHelper */
     private $helper;
 

@@ -25,19 +25,30 @@
     }
   },
   "suggest": {
+    "yoanm/jsonrpc-params-symfony-constraint-doc-sdk": "SDK to generate JSON-RPC documentation from symfony constraint",
+    "yoanm/jsonrpc-server-sdk": "Server SDK to convert a json-rpc request string into json-rpc response string",
     "yoanm/symfony-jsonrpc-http-server-openapi-doc": "Symfony bundle for easy JSON-RPC server OpenAPI 3.0.0 documentation",
     "yoanm/symfony-jsonrpc-http-server-doc": "Symfony bundle for easy JSON-RPC server documentation",
     "yoanm/symfony-jsonrpc-http-server": "Symfony Bundle to convert an HTTP json-rpc request into HTTP json-rpc response"
   },
   "require": {
-    "php": ">=7.1",
-    "yoanm/jsonrpc-server-doc-sdk": "^0.2"
+    "php": "^8.0",
+    "yoanm/jsonrpc-server-doc-sdk": "^1.0"
   },
   "require-dev": {
     "ext-json": "*",
-    "behat/behat": "~3.0",
-    "squizlabs/php_codesniffer": "3.*",
-    "phpunit/phpunit": "^7.0 || ^8.0",
-    "yoanm/php-unit-extended": "~1.0"
+    "behat/behat": "^3.9.0",
+    "dvdoug/behat-code-coverage": "^5.0",
+    "phpspec/prophecy": "^1.15",
+    "phpspec/prophecy-phpunit": "^2.0",
+    "phpunit/phpunit": "^9.6",
+    "squizlabs/php_codesniffer": "^3.5",
+    "yoanm/php-unit-extended": "^2.0"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
   }
 }
