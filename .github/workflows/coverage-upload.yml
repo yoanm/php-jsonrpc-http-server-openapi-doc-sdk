@@ -4,9 +4,13 @@ on:
     workflows: ["CI"]
     types: [completed]
 
+permissions:
+  contents: read
+  checks: write # For the check run creation !
+
 jobs:
   upload:
-    name: Upload
+    name: Coverage
     permissions:
       contents: read
       checks: write # For the check run creation !
