@@ -12,10 +12,12 @@ on:
     branches: [master] # Only for PR targeting master branch
     paths: # /!\ Duplicate the same list as `on.pull_request.paths-ignore` property value for CI workflow !
       - '.github/workflows/pre-check-CI-updates.yml' # This workflow
-      - '.github/workflows/CI.yml'
-      - '.github/workflows/coverage-upload.yml'
       - '.github/workflows/reusable-CI-workflow.yml'
       - '.github/workflows/reusable-coverage-upload-workflow.yml'
+
+permissions:
+  contents: read
+  checks: write # For the check run creation !
 
 concurrency:
   group: "${{ github.workflow }}-${{ github.head_ref || github.ref }}"
@@ -29,7 +31,7 @@ jobs:
     uses: ./.github/workflows/reusable-CI-workflow.yml
 
   upload:
-    name: Upload
+    name: Coverage
     needs: [tests]
     permissions:
       contents: read
