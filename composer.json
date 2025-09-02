@@ -37,7 +37,7 @@
   },
   "require-dev": {
     "ext-json": "*",
-    "behat/behat": "^3.9.0",
+    "behat/behat": "^3.9.0,<=3.16.1",
     "dvdoug/behat-code-coverage": "^5.0",
     "phpspec/prophecy": "^1.15",
     "phpspec/prophecy-phpunit": "^2.0",
