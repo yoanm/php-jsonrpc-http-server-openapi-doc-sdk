@@ -53,7 +53,7 @@ jobs:
             php-version: '${{ needs.fetch-supported-versions.outputs.php-min }}'
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Enable coverage only for specific version(s) !
       # Usually highest version(s), plus additional ones in case of code used only with specific versions
@@ -134,7 +134,7 @@ jobs:
     env:
       PHP_VERSION: ${{ needs.fetch-supported-versions.outputs.php-max }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup PHP ${{ env.PHP_VERSION }}
         id: setup-php
@@ -182,7 +182,7 @@ jobs:
       COMPOSER_IGNORE_PLATFORM_REQ: 'php+'
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup PHP ${{ env.PHP_VERSION }}
         id: setup-php
