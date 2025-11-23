@@ -54,7 +54,7 @@ jobs:
             php-version: '${{ needs.fetch-supported-versions.outputs.php-min }}'
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Enable coverage only for specific version(s) !
       # Usually highest version(s), plus additional ones in case of code used only with specific versions
@@ -120,7 +120,7 @@ jobs:
 
       - name: Upload coverage reports
         if: ${{ env.COVERAGE_TYPE == 'xdebug' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: coverage-groups-php${{ steps.setup-php.outputs.php-version }}
           path: build/coverage-groups
@@ -135,7 +135,7 @@ jobs:
     env:
       PHP_VERSION: ${{ needs.fetch-supported-versions.outputs.php-max }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Setup PHP ${{ env.PHP_VERSION }}
         id: setup-php
@@ -182,7 +182,7 @@ jobs:
       COMPOSER_IGNORE_PLATFORM_REQ: 'php+'
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Setup PHP ${{ needs.fetch-supported-versions.outputs.php-next }}
         id: setup-php
